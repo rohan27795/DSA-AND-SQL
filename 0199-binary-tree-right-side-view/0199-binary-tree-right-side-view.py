@@ -15,8 +15,8 @@ class Solution(object):
 
         while q:
             rightside = None
-            qlen = len(q)
-            for i in range(qlen):
+            
+            for i in range(len(q)):
                 node = q.popleft()
                 if node:
                     rightside = node
