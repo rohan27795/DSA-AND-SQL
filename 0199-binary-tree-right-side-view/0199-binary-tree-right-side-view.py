@@ -10,6 +10,8 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: List[int]
         """
+        if not root:
+            return []
         res = []
         q = deque([root])
 
