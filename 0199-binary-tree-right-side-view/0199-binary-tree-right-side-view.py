@@ -11,7 +11,7 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        q = collections.deque([root])
+        q = deque([root])
 
         while q:
             rightside = None
