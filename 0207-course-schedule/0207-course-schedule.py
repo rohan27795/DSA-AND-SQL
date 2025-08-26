@@ -5,29 +5,34 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        graph = defaultdict(list)
-        for course, prereq in prerequisites:
-            graph[course].append(prereq)
-
-        visited = [0] * numCourses  # 0 = unvisited, 1 = visiting, 2 = visited
-
-        def dfs(course):
-            if visited[course] == 1:  # cycle found
+        premap = {i:[] for i in range(numCourses)}
+        for crs,pre in prerequisites:
+            premap[crs].append(pre)
+        visit = set()
+        def dfs(crs):
+            if crs in visit:
                 return False
-            if visited[course] == 2:  # already checked, no cycle
+            if premap[crs] == []:
                 return True
+            
+            visit.add(crs)
 
-            visited[course] = 1  # mark as visiting
-            for prereq in graph[course]:
-                if not dfs(prereq):
+            for pre in premap[crs]:
+                if not dfs(pre):
                     return False
-            visited[course] = 2  # mark as fully visited
+
+            visit.remove(crs)  #backtrack
+            #premap[crs] = []
             return True
 
-        for c in range(numCourses):
-            if not dfs(c):
+        for crs in range(numCourses):
+            if not dfs(crs):
                 return False
         return True
+            
+            
+
+
 
 
 
