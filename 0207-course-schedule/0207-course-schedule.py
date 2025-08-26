@@ -22,7 +22,7 @@ class Solution(object):
                     return False
 
             visit.remove(crs)  #backtrack
-            #premap[crs] = []
+            premap[crs] = []
             return True
 
         for crs in range(numCourses):
