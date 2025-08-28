@@ -4,11 +4,11 @@ class Solution(object):
         :type tickets: List[List[str]]
         :rtype: List[str]
         """
-        from collections import defaultdict
-        import heapq
+        #from collections import defaultdict
+         #import heapq
 
     # adjacency list with min-heap for lexicographic order
-        adj = defaultdict(list)
+        adj = collections.defaultdict(list)
         for src, dst in tickets:
             heapq.heappush(adj[src], dst)
 
