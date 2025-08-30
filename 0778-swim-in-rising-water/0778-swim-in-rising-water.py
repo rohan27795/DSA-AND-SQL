@@ -5,7 +5,7 @@ class Solution(object):
         :rtype: int
         """
         N = len(grid)
-        minheap = [(grid[0][0],0,0)]
+        minheap = [[grid[0][0],0,0]]
         visit = set()
         directions = [[0,1],[0,-1],[1,0],[-1,0]]
         #visit.add((0,0))
