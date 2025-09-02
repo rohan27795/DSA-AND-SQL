@@ -1,5 +1,6 @@
 class Solution(object):
     def maxArea(self, height):
+            
         l,r=0,len(height)-1
         res=0
         while l<r:
@@ -10,6 +11,8 @@ class Solution(object):
             else:
                 r-=1
         return res
+
+
 
         
 
