@@ -19,20 +19,20 @@ class Solution(object):
 
     def countSubsets(self, nums, target_sum):
         n = len(nums)
-        dp = [[0] * (target_sum + 1) for _ in range(n + 1)]
+        t = [[0] * (target_sum + 1) for _ in range(n + 1)]
 
         # Base case: 1 way to make sum=0 (pick nothing)
         for i in range(n + 1):
-            dp[i][0] = 1
+            t[i][0] = 1
 
         for i in range(1, n + 1):
             for j in range(target_sum + 1):
                 if nums[i - 1] <= j:
-                    dp[i][j] = dp[i - 1][j] + dp[i - 1][j - nums[i - 1]]
+                    t[i][j] = t[i - 1][j] + t[i - 1][j - nums[i - 1]]
                 else:
-                    dp[i][j] = dp[i - 1][j]
+                    t[i][j] = t[i - 1][j]
 
-        return dp[n][target_sum]
+        return t[n][target_sum]
 
 
     
