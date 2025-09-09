@@ -8,7 +8,7 @@ class Solution(object):
         if m == 0:
             return 0
         if m == 1:
-            return nums(0)
+            return nums[0]
         
         return max(self.rob_linear(nums[1:]),self.rob_linear(nums[:-1]))
         
