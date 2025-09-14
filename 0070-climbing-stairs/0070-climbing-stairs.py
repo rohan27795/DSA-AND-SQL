@@ -4,14 +4,13 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        t = [0] *(n +1)
+        if n <= 2:
+            return n  # base cases
 
-        t[0] = 1  #one way to reach 0 step
-        t[1] = 1  #one way to reach 1st step
-        
-        for i in range(2,n+1):
-            t[i] = t[i-1] + t[i-2] # no of ways to reach a particular step is sum of
-                                     #ways to reach previous two step
-            
+        dp = [0] * (n + 1)
+        dp[1], dp[2] = 1, 2
 
-        return t[n]
+        for i in range(3, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]  # ways to reach i = from (i-1) + from (i-2)
+
+        return dp[n]
