@@ -20,4 +20,10 @@ class Solution(object):
             ans = 1.0 / ans
         return ans
 
-        
+
+
+
+
+
+
+                
