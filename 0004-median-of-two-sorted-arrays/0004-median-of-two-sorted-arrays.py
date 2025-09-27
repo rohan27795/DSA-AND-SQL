@@ -5,8 +5,8 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: float
         """
-        #if len(nums1) > len(nums2):
-           # nums1,nums2 = nums2,nums1
+        if len(nums1) > len(nums2):
+            nums1,nums2 = nums2,nums1
         n1,n2 = len(nums1),len(nums2)
         low = 0
         high = n1
