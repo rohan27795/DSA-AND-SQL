@@ -4,7 +4,7 @@ class Solution(object):
         :type n: int
         :rtype: List[List[str]]
         """
-        board = [["."] * n for _ in range(n)]
+        board = [["."] * n for _ in range(n)]  # initalize empty chess board
         res = []
 
         def is_safe(board,row,col,n):
