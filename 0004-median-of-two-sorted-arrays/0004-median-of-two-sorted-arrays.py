@@ -12,8 +12,8 @@ class Solution(object):
         l = 0
         r = n1
         while l <= r:
-            mid1 = (l+r) // 2
-            mid2 = (n1+n2+1)//2 - mid1
+            mid1 = (l+r) / 2
+            mid2 = (n1+n2+1) / 2 - mid1
 
             l1 = float('-inf') if mid1 == 0 else nums1[mid1-1]
             r1 = float('inf') if mid1 == n1 else nums1[mid1]
