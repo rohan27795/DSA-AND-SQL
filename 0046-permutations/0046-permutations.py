@@ -4,27 +4,25 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        result = []
-        self.permutehelper(nums, 0, result)
-        return result
+        res = []
+        def getpermute(idx):
+            if idx == len(nums):
+                res.append(nums[:])
+                return 
 
-    def permutehelper(self,nums,start,result):
-        if start == len(nums) -1:
-            result.append(nums[:])
-            return 
+            for i in range(idx,len(nums)):
+                nums[i],nums[idx] = nums[idx],nums[i] #swap
+                getpermute(idx + 1)             #recursion
+                nums[i],nums[idx] = nums[idx],nums[i] #backtrack
 
-        used = set()
+        getpermute(0)
+        return res
+             
 
-        for i in range(start,len(nums[:])):
-            if nums[i] in used:
-                continue
-            used.add(nums[i])
 
-            nums[start],nums[i] = nums[i],nums[start] #swap
 
-            self.permutehelper(nums,start+1,result)
-            
-            nums[start],nums[i] = nums[i],nums[start] #racktract
+
+        
 
             
             
