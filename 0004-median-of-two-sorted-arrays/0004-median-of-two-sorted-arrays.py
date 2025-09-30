@@ -32,6 +32,8 @@ class Solution(object):
             else:
                 l = mid1 + 1
 
+        return 0.0
+
         
     
 
