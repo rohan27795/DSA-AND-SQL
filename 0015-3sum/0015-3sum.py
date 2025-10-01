@@ -4,24 +4,34 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        res=[]
+        res = []
         nums.sort()
-        for i,  a in enumerate(nums):
-            if i and a==nums[i-1]:
+        n = len(nums)
+        for i in range(n):
+            if i > 0 and nums[i] == nums[i-1]:
                 continue
-            l,r=i+1,len(nums)-1
-            while l<r:
-                threesum=a+nums[l]+nums[r]
-                if threesum>0:
-                    r-=1
-                elif threesum<0:
-                    l+=1
+
+            j,k = i+1 , n-1
+            while j<k:
+                currentsum = nums[i] + nums[j] + nums[k]
+                if currentsum > 0:
+                    k -=1
+                elif currentsum < 0:
+                    j +=1
                 else:
-                    res.append([a,nums[l],nums[r]])
-                    l+=1
-                    while l<r and nums[l]==nums[l-1]:
-                        l+=1
+                    res.append([nums[i],nums[j],nums[k]])
+
+                    while j < k and nums[j] == nums[j+1]:
+                        j +=1
+                    while j < k and nums[k] == nums[k-1]:
+                        k -=1
+                    j +=1
+                    k -=1
         return res
+            
+
+
+        
 
 
 
