@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution(object):
     def mergeKLists(self, lists):
+        
         if not lists:
             return None
 
@@ -36,6 +37,10 @@ class Solution(object):
             tail.next = l2
         
         return dummy.next
+
+
+
+
 
         
 
